@@ -24,6 +24,12 @@ class APIClient<T> {
       .get<FetchResponse<T>>(this.endpont, config)
       .then((res) => res.data);
   };
+
+  get = (id: string | number) => {
+    return axiosInstance
+      .get<T>(this.endpont + "/" + id)
+      .then((res) => res.data);
+  };
 }
 
 export default APIClient;
